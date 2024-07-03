@@ -56,7 +56,7 @@ const AddProducts = () => {
 
     try {
       const uploadResponse = await fetch(
-        "http://localhost:3001/upload",
+        "https://ecommerce-admin072024.vercel.app/upload",
         {
           method: "POST",
           headers: {
