@@ -7,7 +7,7 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(cors({
-  origin: 'https://ecommerce-admin-072024front.vercel.app/', // Allow all origins (for testing purposes). In production, specify your allowed origins.
+  origin: 'https://ecommerce-admin-072024front.vercel.app', // Allow all origins (for testing purposes). In production, specify your allowed origins.
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   preflightContinue: false,
   optionsSuccessStatus: 204,
