@@ -141,10 +141,6 @@ app.delete('/items/:id', async (req, res) => {
   }
 });
 
-// Increase the server timeout setting
-const server = app.listen(port, () => {
+app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
-
-// Set the timeout to a higher value (e.g., 5 minutes)
-server.timeout = 300000; // 5 minutes in milliseconds
