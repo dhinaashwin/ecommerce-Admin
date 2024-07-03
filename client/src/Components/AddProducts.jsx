@@ -41,27 +41,17 @@ const AddProducts = () => {
     setFullScreenImage(null);
   };
 
-   const handleClick = async () => {
+  const handleClick = async () => {
     if (!img) {
       setUploadStatus("No main image selected");
       return;
     }
     if (!name || !newPrice || !category || !gender) {
-      Swal.fire({
-        title: 'Error!',
-        text: 'Please fill out all required fields.',
-        icon: 'error',
-        confirmButtonText: 'OK'
-      });
+      alert("Please fill out all required fields.");
       return;
     }
     if (id <= 0) {
-      Swal.fire({
-        title: 'Error!',
-        text: 'Enter a valid ID',
-        icon: 'error',
-        confirmButtonText: 'OK'
-      });
+      alert("Enter a valid ID");
       return;
     }
 
@@ -99,12 +89,7 @@ const AddProducts = () => {
 
       if (uploadResponse.ok) {
         setUploadStatus("Upload and data save successful");
-        Swal.fire({
-          title: 'Uploaded',
-          text: 'Your item has been uploaded successfully!',
-          icon: 'success',
-          confirmButtonText: 'OK'
-        });
+        alert("Uploaded......")
         resetForm();
       } else {
         const errorData = await uploadResponse.json();
@@ -114,7 +99,6 @@ const AddProducts = () => {
       setUploadStatus(`Upload failed: ${error.message}`);
     }
   };
-
 
   const handleNewProductChange = (event) => {
     setNewProduct(event.target.checked);
