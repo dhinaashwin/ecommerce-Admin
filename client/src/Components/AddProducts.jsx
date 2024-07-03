@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import Swal from 'sweetalert2';
-import 'sweetalert2/dist/sweetalert2.min.css'; 
+
 import './AddProducts.css';
 const AddProducts = () => {
   const [img, setImg] = useState("");
@@ -89,7 +88,6 @@ const AddProducts = () => {
 
       if (uploadResponse.ok) {
         setUploadStatus("Upload and data save successful");
-        alert("Uploaded......")
         resetForm();
       } else {
         const errorData = await uploadResponse.json();
