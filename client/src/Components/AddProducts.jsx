@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css'; 
 import './AddProducts.css';
 const AddProducts = () => {
   const [img, setImg] = useState("");
@@ -40,17 +41,27 @@ const AddProducts = () => {
     setFullScreenImage(null);
   };
 
-  const handleClick = async () => {
+   const handleClick = async () => {
     if (!img) {
       setUploadStatus("No main image selected");
       return;
     }
     if (!name || !newPrice || !category || !gender) {
-      alert("Please fill out all required fields.");
+      Swal.fire({
+        title: 'Error!',
+        text: 'Please fill out all required fields.',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
       return;
     }
     if (id <= 0) {
-      alert("Enter a valid ID");
+      Swal.fire({
+        title: 'Error!',
+        text: 'Enter a valid ID',
+        icon: 'error',
+        confirmButtonText: 'OK'
+      });
       return;
     }
 
@@ -88,6 +99,12 @@ const AddProducts = () => {
 
       if (uploadResponse.ok) {
         setUploadStatus("Upload and data save successful");
+        Swal.fire({
+          title: 'Uploaded',
+          text: 'Your item has been uploaded successfully!',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        });
         resetForm();
       } else {
         const errorData = await uploadResponse.json();
@@ -97,6 +114,7 @@ const AddProducts = () => {
       setUploadStatus(`Upload failed: ${error.message}`);
     }
   };
+
 
   const handleNewProductChange = (event) => {
     setNewProduct(event.target.checked);
