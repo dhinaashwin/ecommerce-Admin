@@ -87,7 +87,7 @@ const AddProducts = () => {
   
       if (uploadResponse.ok) {
         setUploadStatus("Upload and data save successful");
-        alert("Upload successful");
+        alert("Upload successful....");
         resetForm();
       } else {
         const errorData = await uploadResponse.json();
