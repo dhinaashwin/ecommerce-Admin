@@ -1,0 +1,44 @@
+.addProducts-section{
+    .ADD{
+        .box{
+            background-color: #d1cfcf;
+            border-radius: 10%;
+        }
+        .box-2{
+            background-color: #d1cfcf;
+            border-radius: 10%;
+        }
+        .box-3{
+            background-color: #d1cfcf;
+            border-radius: 10%;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .ADD{
+        .box-1{
+            width: 400px;
+        }
+        .box-2{
+            width:300px
+        }
+        .box-3{
+            width:300px;
+        }
+    }
+  }
+  @media screen and (min-width: 1024px) and (max-width: 1280px) {
+    .ADD{
+        .box-1{
+            width: 500px;
+        }
+        .box-2{
+            width:300px;
+        }
+        .box-3{
+            width:300px;
+        }
+    }
+  }
+  
