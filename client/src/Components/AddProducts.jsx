@@ -40,18 +40,18 @@ const AddProducts = () => {
     setFullScreenImage(null);
   };
   const handleClick = async () => {
-    if (!img) {
-      setUploadStatus("No main image selected");
-      return;
-    }
-    if (!name || !newPrice || !category || !gender) {
-      alert("Please fill out all required fields.");
-      return;
-    }
-    if (id <= 0) {
-      alert("Enter a valid ID");
-      return;
-    }
+    // if (!img) {
+    //   setUploadStatus("No main image selected");
+    //   return;
+    // }
+    // if (!name || !newPrice || !category || !gender) {
+    //   alert("Please fill out all required fields.");
+    //   return;
+    // }
+    // if (id <= 0) {
+    //   alert("Enter a valid ID");
+    //   return;
+    // }
   
     try {
       const uploadResponse = await fetch(
