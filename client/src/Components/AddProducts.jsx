@@ -39,7 +39,6 @@ const AddProducts = () => {
   const handleCloseFullScreen = () => {
     setFullScreenImage(null);
   };
-
   const handleClick = async () => {
     if (!img) {
       setUploadStatus("No main image selected");
@@ -53,7 +52,7 @@ const AddProducts = () => {
       alert("Enter a valid ID");
       return;
     }
-
+  
     try {
       const uploadResponse = await fetch(
         "https://ecommerce-admin072024.vercel.app/upload",
@@ -85,9 +84,10 @@ const AddProducts = () => {
           }),
         }
       );
-
+  
       if (uploadResponse.ok) {
         setUploadStatus("Upload and data save successful");
+        alert("Upload successful");
         resetForm();
       } else {
         const errorData = await uploadResponse.json();
@@ -97,6 +97,7 @@ const AddProducts = () => {
       setUploadStatus(`Upload failed: ${error.message}`);
     }
   };
+  
 
   const handleNewProductChange = (event) => {
     setNewProduct(event.target.checked);
