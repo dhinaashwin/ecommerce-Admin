@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import './AddProducts.css';
 const AddProducts = () => {
+  const [isClicked, setIsClicked] = useState(false);
   const [img, setImg] = useState("");
   const [img2, setImg2] = useState("");
   const [img3, setImg3] = useState("");
@@ -53,7 +54,13 @@ const AddProducts = () => {
       alert("Enter a valid ID");
       return;
     }
+    setIsClicked(true);
+    // Your handleClick logic here
 
+    // Optionally reset the clicked state after some time
+    setTimeout(() => {
+      setIsClicked(false);
+    }, 200);
     try {
       const uploadResponse = await fetch(
         "https://ecommerce-admin072024.vercel.app/upload",
@@ -567,12 +574,14 @@ const AddProducts = () => {
               </div>
             </div>
             <div className="w-full px-6 mt-4">
-              <button
-                className=" bg-green-500 text-white p-4 rounded-lg"
-                onClick={handleClick}
-              >
-                Add Product
-              </button>
+            <button
+      className={`p-4 rounded-lg transition-colors duration-300 ${
+        isClicked ? 'bg-green-700' : 'bg-green-500'
+      } text-white`}
+      onClick={handleClick}
+    >
+      Add Product
+    </button>
             </div>
           </div>
         </div>
